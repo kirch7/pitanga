@@ -1,0 +1,61 @@
+[package]
+name = "pitanga"
+version = "0.0.0"
+authors = ["Cássio Kirch <cassiokirch@gmail.com>"]
+
+[[bin]]
+name = "pitanga-server"
+path = "src/server/server.rs"
+#required-features = ["pitangaserver"]
+
+[[bin]]
+name = "pitanga-worker"
+path = "src/worker/worker.rs"
+
+[[bin]]
+name = "pitanga-batch"
+path = "src/batch/batch.rs"
+
+[dependencies]
+libpitanga = { path = "lib" }
+yaml-rust = "*"
+num_cpus = "*"
+#sysinfo = "*"
+
+[workspace]
+
+
+[profile.dev]
+opt-level        = 0
+debug            = true
+lto              = false
+debug-assertions = true
+codegen-units    = 1
+
+[profile.release]
+opt-level        = 3
+debug            = false
+lto              = true
+debug-assertions = false
+codegen-units    = 1
+
+[profile.test]
+opt-level = 0
+debug = true
+lto = false
+debug-assertions = true
+codegen-units = 1
+
+[profile.bench]
+opt-level = 3
+debug = false
+lto = true
+debug-assertions = false
+codegen-units = 1
+
+[profile.doc]
+opt-level = 0
+debug = true
+lto = false
+debug-assertions = true
+codegen-units = 1

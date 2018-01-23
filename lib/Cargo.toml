@@ -1,0 +1,10 @@
+[package]
+name = "libpitanga"
+version = "0.0.0"
+authors = ["Cássio Kirch <cassiokirch@gmail.com>"]
+
+[dependencies]
+yaml-rust = "*"
+
+[features]
+pitangaserver = []
